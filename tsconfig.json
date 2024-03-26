@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsxdev",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "types": ["vite/client"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
