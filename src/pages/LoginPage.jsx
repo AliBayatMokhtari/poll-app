@@ -1,27 +1,97 @@
 import useUserStore from "../store/user.store"
 import { useLocation } from "wouter"
+import {
+  Button,
+  Flex,
+  TextField,
+  Heading,
+} from "@radix-ui/themes"
 
 export default function LoginPage() {
   const setUser = useUserStore((state) => state.setUser)
   const [, setLocation] = useLocation()
 
-  const loginUser = () => {
+  /**
+   *
+   * @param {{email: string; password: string;}} data
+   */
+  const loginUser = ({ email, password }) => {
     setUser({
-      title: "Ali BM",
+      title: email,
       token: import.meta.env.VITE_TOKEN,
-      userId: "ali_bm",
+      userId: password,
     })
 
     setLocation("/")
   }
 
-  return (
-    <div>
-      <h2>Login Page</h2>
+  /**
+   *
+   * @param {import("react").FormEvent<HTMLFormElement>} e
+   */
+  const onSubmit = (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
 
-      <button type="button" onClick={loginUser}>
-        Login
-      </button>
-    </div>
+    const email = formData.get("email")
+    const password = formData.get("password")
+
+    if (!email || !password) {
+      // TODO
+      return
+    }
+
+    loginUser({
+      email: email.toString(),
+      password: password.toString(),
+    })
+  }
+
+  return (
+    <Flex align="center" height="100vh">
+      <form
+        onSubmit={onSubmit}
+        style={{
+          maxWidth: "600px",
+          width: "100%",
+          marginInline: "auto",
+        }}
+      >
+        <Flex
+          justify="center"
+          align="center"
+          direction="column"
+          gap="5"
+        >
+          <Heading as="h2" size="8">
+            Login
+          </Heading>
+
+          <div style={{ width: "100%", maxWidth: "250px" }}>
+            <label htmlFor="email">Email</label>
+            <TextField.Root
+              id="email"
+              placeholder="Email"
+              name="email"
+              type="email"
+              style={{ width: "100%", marginTop: "4px" }}
+            />
+          </div>
+          <div style={{ width: "100%", maxWidth: "250px" }}>
+            <label htmlFor="password">Password</label>
+            <TextField.Root
+              id="password"
+              placeholder="Password"
+              name="password"
+              type="password"
+              style={{ width: "100%", marginTop: "4px" }}
+              autoComplete="off"
+            />
+          </div>
+
+          <Button type="submit">Login</Button>
+        </Flex>
+      </form>
+    </Flex>
   )
 }
