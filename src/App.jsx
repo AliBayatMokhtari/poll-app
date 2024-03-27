@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react"
-import { Link, Router, Route } from "wouter"
+import { Router, Route } from "wouter"
 import { useHashLocation } from "wouter/use-hash-location"
+import { Theme } from "@radix-ui/themes"
 
 const LoginPage = lazy(() => import("./pages/LoginPage"))
 const HomePage = lazy(() => import("./pages/HomePage"))
@@ -9,10 +10,8 @@ import "./App.css"
 
 function App() {
   return (
-    <>
+    <Theme appearance="dark">
       <Router hook={useHashLocation}>
-        <Link to="/login">Login</Link>
-
         <Route path="/">
           <Suspense fallback={<>Loading...</>}>
             <HomePage />
@@ -24,7 +23,7 @@ function App() {
           </Suspense>
         </Route>
       </Router>
-    </>
+    </Theme>
   )
 }
 
