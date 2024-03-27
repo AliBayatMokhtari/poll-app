@@ -1,10 +1,11 @@
-import { Suspense, lazy } from "react";
-import { Link, Router, Route } from "wouter";
-import { useHashLocation } from "wouter/use-hash-location";
+import { Suspense, lazy } from "react"
+import { Link, Router, Route } from "wouter"
+import { useHashLocation } from "wouter/use-hash-location"
 
-const LoginPage = lazy(() => import("./pages/LoginPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"))
+const HomePage = lazy(() => import("./pages/HomePage"))
 
-import "./App.css";
+import "./App.css"
 
 function App() {
   return (
@@ -12,6 +13,11 @@ function App() {
       <Router hook={useHashLocation}>
         <Link to="/login">Login</Link>
 
+        <Route path="/">
+          <Suspense fallback={<>Loading...</>}>
+            <HomePage />
+          </Suspense>
+        </Route>
         <Route path="/login">
           <Suspense fallback={<>Loading...</>}>
             <LoginPage />
@@ -19,7 +25,7 @@ function App() {
         </Route>
       </Router>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
