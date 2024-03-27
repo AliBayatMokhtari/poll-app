@@ -62,12 +62,13 @@ export default function LoginPage() {
           align="center"
           direction="column"
           gap="5"
+          style={{ padding: "9rem" }}
         >
           <Heading as="h2" size="8">
             Login
           </Heading>
 
-          <div style={{ width: "100%", maxWidth: "250px" }}>
+          <div style={{ width: "100%" }}>
             <label htmlFor="email">Email</label>
             <TextField.Root
               id="email"
@@ -77,7 +78,7 @@ export default function LoginPage() {
               style={{ width: "100%", marginTop: "4px" }}
             />
           </div>
-          <div style={{ width: "100%", maxWidth: "250px" }}>
+          <div style={{ width: "100%" }}>
             <label htmlFor="password">Password</label>
             <TextField.Root
               id="password"
@@ -89,7 +90,12 @@ export default function LoginPage() {
             />
           </div>
 
-          <Button type="submit">Login</Button>
+          <Button
+            type="submit"
+            style={{ width: "100%", marginTop: "10px" }}
+          >
+            Login
+          </Button>
         </Flex>
       </form>
     </Flex>
