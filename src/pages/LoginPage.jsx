@@ -6,6 +6,7 @@ import {
   TextField,
   Heading,
 } from "@radix-ui/themes"
+import authService from "../services/api/auth.service"
 
 export default function LoginPage() {
   const setUser = useUserStore((state) => state.setUser)
@@ -15,13 +16,13 @@ export default function LoginPage() {
    *
    * @param {{email: string; password: string;}} data
    */
-  const loginUser = ({ email, password }) => {
-    setUser({
-      title: email,
-      token: import.meta.env.VITE_TOKEN,
-      userId: password,
+  const loginUser = async ({ email, password }) => {
+    const result = await authService.login({
+      identifier: email,
+      password,
     })
 
+    setUser({ jwt: result.jwt, info: { ...result.user } })
     setLocation("/")
   }
 
