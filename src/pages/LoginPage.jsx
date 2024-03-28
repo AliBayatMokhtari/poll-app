@@ -11,7 +11,6 @@ import withAuthenticatedUser from "../components/withAuthenticatedUser"
 
 function LoginPage() {
   const setUser = useUserStore((state) => state.setUser)
-  const [, setLocation] = useLocation()
 
   /**
    *
@@ -24,7 +23,6 @@ function LoginPage() {
     })
 
     setUser({ jwt: result.jwt, info: { ...result.user } })
-    setLocation("/")
   }
 
   /**

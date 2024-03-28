@@ -1,5 +1,6 @@
 import withAuth from "../components/withAuth"
 import useUserStore from "../store/user.store"
+import { Heading } from "@radix-ui/themes"
 
 function HomePage() {
   const removeUser = useUserStore(
@@ -8,7 +9,7 @@ function HomePage() {
 
   return (
     <div>
-      <h2>Home Page</h2>
+      <Heading as="h2">Home Page</Heading>
       <button type="button" onClick={removeUser}>
         Logout
       </button>
