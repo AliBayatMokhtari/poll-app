@@ -1,5 +1,6 @@
 import { create } from "zustand"
 import { devtools, persist } from "zustand/middleware"
+import storageKeys from "../constants/storageKeys"
 
 /** @type {Domain.User} */
 const initialStore = {
@@ -35,7 +36,7 @@ const useUserStore = create(
         removeUser: () => set({ ...initialStore }),
       }),
       {
-        name: "user",
+        name: storageKeys.user,
       }
     )
   )
