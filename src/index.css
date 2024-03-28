@@ -9,7 +9,13 @@
   --cursor-slider-thumb-active: grabbing;
   --cursor-switch: pointer;
 }
+
 html,
 body {
   margin: 0;
+}
+
+.user-avatar span {
+  color: white;
+  background-color: transparent;
 }
