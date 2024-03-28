@@ -27,7 +27,7 @@ function getAuthUser(
 
   if (!user) return null
 
-  return JSON.parse(user)
+  return JSON.parse(user).state
 }
 
 const localStorageService = Object.freeze({

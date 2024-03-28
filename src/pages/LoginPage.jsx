@@ -7,8 +7,9 @@ import {
   Heading,
 } from "@radix-ui/themes"
 import authService from "../services/api/auth.service"
+import withAuthenticatedUser from "../components/withAuthenticatedUser"
 
-export default function LoginPage() {
+function LoginPage() {
   const setUser = useUserStore((state) => state.setUser)
   const [, setLocation] = useLocation()
 
@@ -102,3 +103,7 @@ export default function LoginPage() {
     </Flex>
   )
 }
+
+const AuthenticatedUserLoginPage =
+  withAuthenticatedUser(LoginPage)
+export default AuthenticatedUserLoginPage

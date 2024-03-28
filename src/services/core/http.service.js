@@ -7,13 +7,14 @@ import localStorageService from "./localStorage.service"
  * @returns {Core.Http.HttpCore}
  */
 const createHttpCore = ({ storageService }) => {
-  const user = storageService.getAuthUser()
-  const token = user?.jwt ?? ""
-
-  /** @type {Record<string, string>} */
-  const defaultRequestHeaders = {
-    Authorization: `Bearer ${token}`,
-    "Content-Type": "application/json",
+  /** @returns {Record<string, string>} */
+  const getDefaultHeaders = () => {
+    const user = storageService.getAuthUser()
+    const token = user?.jwt ?? ""
+    return {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    }
   }
 
   /**
@@ -27,7 +28,7 @@ const createHttpCore = ({ storageService }) => {
       const res = await fetch(getFullUrl(url), {
         method: "GET",
         headers: {
-          ...defaultRequestHeaders,
+          ...getDefaultHeaders(),
         },
       })
 
@@ -43,7 +44,7 @@ const createHttpCore = ({ storageService }) => {
     async post(url, payload) {
       const res = await fetch(getFullUrl(url), {
         method: "POST",
-        headers: { ...defaultRequestHeaders },
+        headers: { ...getDefaultHeaders() },
         body: JSON.stringify(payload),
       })
 
