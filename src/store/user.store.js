@@ -1,5 +1,20 @@
-import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { create } from "zustand"
+import { devtools, persist } from "zustand/middleware"
+
+/** @type {Domain.User} */
+const initialStore = {
+  jwt: "",
+  info: {
+    id: -1,
+    username: "",
+    email: "",
+    provider: "",
+    confirmed: false,
+    blocked: true,
+    createdAt: "",
+    updatedAt: "",
+  },
+}
 
 /**
  * @type {import("../types/store").Store.UserStore}
@@ -8,9 +23,7 @@ const useUserStore = create(
   devtools(
     persist(
       (set) => ({
-        title: "",
-        token: "",
-        userId: "",
+        ...initialStore,
 
         /**
          *
@@ -19,18 +32,13 @@ const useUserStore = create(
          */
         setUser: (user) => set(user),
 
-        removeUser: () =>
-          set({
-            title: "",
-            token: "",
-            userId: "",
-          }),
+        removeUser: () => set({ ...initialStore }),
       }),
       {
         name: "user",
       }
     )
   )
-);
+)
 
-export default useUserStore;
+export default useUserStore

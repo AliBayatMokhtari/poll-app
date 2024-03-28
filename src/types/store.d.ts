@@ -1,9 +1,9 @@
-import type { StoreApi, UseBoundStore } from "zustand";
+import type { StoreApi, UseBoundStore } from "zustand"
 
 declare namespace Store {
   interface UserStoreAction {
-    setUser: (user: Domain.User) => void;
-    removeUser: VoidFunction;
+    setUser: (user: Domain.User) => void
+    removeUser: VoidFunction
   }
 
   interface UserStore

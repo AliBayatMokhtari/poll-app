@@ -1,6 +1,7 @@
-import { getItem } from "./getItem";
+import storageKeys from "../../constants/storageKeys"
+import { getItem } from "./getItem"
 
-const storage = window.localStorage;
+const storage = window.localStorage
 
 /**
  *
@@ -11,11 +12,27 @@ function getString(
   key,
   getter = (key) => getItem(storage, key)
 ) {
-  return getter(key);
+  return getter(key)
+}
+
+/**
+ *
+ * @type {Core.Storage.StorageService['getAuthUser']}
+ */
+function getAuthUser(
+  key = storageKeys.user,
+  getter = () => getItem(storage, key)
+) {
+  const user = getter(key)
+
+  if (!user) return null
+
+  return JSON.parse(user)
 }
 
 const localStorageService = Object.freeze({
   getString,
-});
+  getAuthUser,
+})
 
-export default localStorageService;
+export default localStorageService
