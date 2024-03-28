@@ -1,10 +1,10 @@
 import useUserStore from "../store/user.store"
-import { useLocation } from "wouter"
 import {
   Button,
   Flex,
   TextField,
   Heading,
+  Card,
 } from "@radix-ui/themes"
 import authService from "../services/api/auth.service"
 import withAuthenticatedUser from "../components/withAuthenticatedUser"
@@ -48,7 +48,7 @@ function LoginPage() {
   }
 
   return (
-    <Flex align="center" height="100vh">
+    <Flex align="center">
       <form
         onSubmit={onSubmit}
         style={{

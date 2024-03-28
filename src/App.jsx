@@ -7,10 +7,15 @@ const LoginPage = lazy(() => import("./pages/LoginPage"))
 const HomePage = lazy(() => import("./pages/HomePage"))
 
 import "./App.css"
+import Header from "./components/header/Header"
+import useThemeStore from "./store/theme.store"
 
 function App() {
+  const theme = useThemeStore((state) => state.theme)
+
   return (
-    <Theme appearance="dark">
+    <Theme appearance={theme}>
+      <Header />
       <Router hook={useHashLocation}>
         <Route path="/">
           <Suspense fallback={<>Loading...</>}>
