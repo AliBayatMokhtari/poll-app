@@ -11,7 +11,21 @@ function login(payload) {
   return loginPromise
 }
 
+/**
+ *
+ * @type {Api.Auth.SignUpService}
+ */
+function signUp(payload) {
+  const signUpPromise = httpService.post(
+    "/auth/local/register",
+    { ...payload }
+  )
+
+  return signUpPromise
+}
+
 const authService = Object.freeze({
   login,
+  signUp,
 })
 export default authService
