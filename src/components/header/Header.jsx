@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Container,
   Flex,
@@ -10,6 +9,7 @@ import { SunIcon, MoonIcon } from "@radix-ui/react-icons"
 import useUserStore from "../../store/user.store"
 import useThemeStore from "../../store/theme.store"
 import logo from "../../assets/images/logo_2.jpeg"
+import Avatar from "./Avatar"
 
 export default function Header() {
   const { theme, setTheme } = useThemeStore()
@@ -43,16 +43,7 @@ export default function Header() {
             </Heading>
           </Flex>
           <Flex gap="1">
-            {username && (
-              <IconButton radius="full">
-                <Avatar
-                  fallback={username
-                    .charAt(0)
-                    .toUpperCase()}
-                  className="user-avatar"
-                />
-              </IconButton>
-            )}
+            {username && <Avatar />}
             <IconButton radius="full" onClick={toggleTheme}>
               {theme === "dark" ? (
                 <SunIcon />
