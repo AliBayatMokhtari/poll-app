@@ -4,7 +4,6 @@ import {
   Flex,
   TextField,
   Heading,
-  Card,
 } from "@radix-ui/themes"
 import authService from "../services/api/auth.service"
 import withAuthenticatedUser from "../components/withAuthenticatedUser"
@@ -17,12 +16,17 @@ function LoginPage() {
    * @param {{email: string; password: string;}} data
    */
   const loginUser = async ({ email, password }) => {
-    const result = await authService.login({
-      identifier: email,
-      password,
-    })
+    try {
+      const result = await authService.login({
+        identifier: email,
+        password,
+      })
 
-    setUser({ jwt: result.jwt, info: { ...result.user } })
+      setUser({ jwt: result.jwt, info: { ...result.user } })
+    } catch (err) {
+      // TODO: handle error globally or locally
+      console.log({ err })
+    }
   }
 
   /**

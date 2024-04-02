@@ -8,6 +8,8 @@ const initialStore = {
   info: {
     id: -1,
     username: "",
+    firstName: "",
+    lastName: "",
     email: "",
     provider: "",
     confirmed: false,

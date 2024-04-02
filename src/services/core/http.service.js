@@ -27,9 +27,7 @@ const createHttpCore = ({ storageService }) => {
     async get(url) {
       const res = await fetch(getFullUrl(url), {
         method: "GET",
-        headers: {
-          ...getDefaultHeaders(),
-        },
+        headers: { ...getDefaultHeaders() },
       })
 
       const json = await res.json()
