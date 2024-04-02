@@ -4,9 +4,12 @@ import {
   Flex,
   TextField,
   Heading,
+  Text,
 } from "@radix-ui/themes"
 import authService from "../services/api/auth.service"
 import withAuthenticatedUser from "../components/withAuthenticatedUser"
+import { Link } from "wouter"
+import routes from "../constants/routes"
 
 function LoginPage() {
   const setUser = useUserStore((state) => state.setUser)
@@ -100,6 +103,18 @@ function LoginPage() {
           >
             Login
           </Button>
+
+          <Flex width="100%">
+            <Text size="1">
+              {`Don't have any account?`}{" "}
+              <Link
+                to={routes.signUp}
+                style={{ textDecoration: "none" }}
+              >
+                <Text color="blue">Register</Text>
+              </Link>
+            </Text>
+          </Flex>
         </Flex>
       </form>
     </Flex>

@@ -10,8 +10,20 @@ declare namespace Api {
       password: string
     }
 
+    interface SignUpRequestBody {
+      email: string
+      username: string
+      password: string
+      firstName: string
+      lastName: string
+    }
+
     type LoginService = (
       payload: LoginRequestBody
+    ) => Promise<LoginResponse>
+
+    type SignUpService = (
+      payload: SignUpRequestBody
     ) => Promise<LoginResponse>
   }
 }
