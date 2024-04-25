@@ -26,5 +26,7 @@ declare namespace Domain {
 		id: string;
 		title: string;
 		options: Array<PollOption>;
+		expiresAt: string;
+		startsAt: string;
 	}
 }
