@@ -1,6 +1,6 @@
 import login from "./auth/login";
 import signUp from "./auth/sign-up";
-import getAll from "./polls/polls-list";
+import getAll from "./poll/polls";
 
 const api = {
 	auth: {

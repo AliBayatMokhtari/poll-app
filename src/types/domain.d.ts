@@ -25,6 +25,7 @@ declare namespace Domain {
 	interface Poll {
 		id: string;
 		title: string;
+		description: string;
 		options: Array<PollOption>;
 		expiresAt: string;
 		startsAt: string;

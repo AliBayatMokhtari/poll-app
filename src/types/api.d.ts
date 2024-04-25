@@ -22,4 +22,8 @@ declare namespace Api {
 
 		type SignUpService = (payload: SignUpRequestBody) => Promise<LoginResponse>;
 	}
+
+	declare module Poll {
+		type GetPollsService = () => Promise<Array<Domain.Poll>>;
+	}
 }
