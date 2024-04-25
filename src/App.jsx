@@ -13,7 +13,7 @@ import useThemeStore from "./store/theme.store";
 import routes from "./constants/routes";
 
 function App() {
-	const theme = useThemeStore((state) => state.theme);
+	const theme = useThemeStore(state => state.theme);
 
 	return (
 		<Theme appearance={theme}>

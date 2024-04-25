@@ -11,9 +11,9 @@ const defaultTheme = "dark";
 const useThemeStore = create(
 	devtools(
 		persist(
-			(set) => ({
+			set => ({
 				theme: defaultTheme,
-				setTheme: (theme) => set({ theme }),
+				setTheme: theme => set({ theme }),
 			}),
 			{
 				name: storageKeys.theme,

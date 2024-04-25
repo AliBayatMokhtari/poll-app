@@ -1,7 +1,7 @@
 /**
  * @type {Api.Auth.SignUpService}
  */
-const signUp = async (payload) => {
+const signUp = async payload => {
 	return {
 		jwt: "Fake JWT",
 		user: {

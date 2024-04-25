@@ -21,7 +21,7 @@ const createHttpCore = ({ storageService }) => {
 	 *
 	 * @param {string} url
 	 */
-	const getFullUrl = (url) => config.apiBaseUrl + url;
+	const getFullUrl = url => config.apiBaseUrl + url;
 
 	return {
 		async get(url) {

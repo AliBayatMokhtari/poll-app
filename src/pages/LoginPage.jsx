@@ -7,7 +7,7 @@ import routes from "../constants/routes";
 import { useState } from "react";
 
 function LoginPage() {
-	const setUser = useUserStore((state) => state.setUser);
+	const setUser = useUserStore(state => state.setUser);
 	const [loading, setLoading] = useState(false);
 
 	/**
@@ -35,7 +35,7 @@ function LoginPage() {
 	 *
 	 * @param {import("react").FormEvent<HTMLFormElement>} e
 	 */
-	const onSubmit = (e) => {
+	const onSubmit = e => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
 

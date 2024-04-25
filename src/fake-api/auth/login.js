@@ -4,7 +4,7 @@ import delay from "../utils/delay";
  *
  * @type {Api.Auth.LoginService}
  */
-const login = async (payload) => {
+const login = async payload => {
 	await delay();
 	return {
 		jwt: "Fake JWT",
