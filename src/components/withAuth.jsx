@@ -1,5 +1,5 @@
-import useUserStore from "../store/user.store"
-import { Redirect } from "wouter"
+import useUserStore from "../store/user.store";
+import { Redirect } from "wouter";
 
 /**
  *
@@ -7,13 +7,13 @@ import { Redirect } from "wouter"
  * @returns
  */
 export default function withAuth(Component) {
-  const Comp = () => {
-    const token = useUserStore((state) => state.jwt)
+	const Comp = () => {
+		const token = useUserStore((state) => state.jwt);
 
-    if (!token) return <Redirect to="/login" replace />
+		if (!token) return <Redirect to="/login" replace />;
 
-    return <Component />
-  }
+		return <Component />;
+	};
 
-  return Comp
+	return Comp;
 }

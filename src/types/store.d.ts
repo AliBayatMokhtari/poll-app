@@ -1,28 +1,25 @@
-import type { StoreApi, UseBoundStore } from "zustand"
+import type { StoreApi, UseBoundStore } from "zustand";
 
 declare namespace Store {
-  interface UserStoreAction {
-    setUser: (user: Domain.User) => void
-    removeUser: VoidFunction
-  }
+	interface UserStoreAction {
+		setUser: (user: Domain.User) => void;
+		removeUser: VoidFunction;
+	}
 
-  interface UserStore
-    extends UseBoundStore<
-      StoreApi<Domain.User & UserStoreAction>
-    > {}
+	interface UserStore extends UseBoundStore<StoreApi<Domain.User & UserStoreAction>> {}
 
-  type Theme = "dark" | "light"
+	type Theme = "dark" | "light";
 
-  interface ThemeAction {
-    setTheme: (theme: Theme) => void
-  }
+	interface ThemeAction {
+		setTheme: (theme: Theme) => void;
+	}
 
-  interface ThemeStore
-    extends UseBoundStore<
-      StoreApi<
-        {
-          theme: Theme
-        } & ThemeAction
-      >
-    > {}
+	interface ThemeStore
+		extends UseBoundStore<
+			StoreApi<
+				{
+					theme: Theme;
+				} & ThemeAction
+			>
+		> {}
 }

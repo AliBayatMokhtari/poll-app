@@ -1,16 +1,16 @@
 {
-  "compilerOptions": {
-    "checkJs": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "target": "ESNext",
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsxdev",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "types": ["vite/client"],
-    "strictNullChecks": true
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+	"compilerOptions": {
+		"checkJs": true,
+		"skipLibCheck": true,
+		"module": "ESNext",
+		"target": "ESNext",
+		"allowSyntheticDefaultImports": true,
+		"jsx": "react-jsxdev",
+		"noImplicitAny": true,
+		"moduleResolution": "node",
+		"types": ["vite/client"],
+		"strictNullChecks": true
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
 }

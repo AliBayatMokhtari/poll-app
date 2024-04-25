@@ -1,14 +1,14 @@
-import httpService from "../core/http.service"
+import httpService from "../core/http.service";
 
 /**
  * @type {Api.Auth.LoginService}
  */
 function login(payload) {
-  const loginPromise = httpService.post("/auth/local", {
-    ...payload,
-  })
+	const loginPromise = httpService.post("/auth/local", {
+		...payload,
+	});
 
-  return loginPromise
+	return loginPromise;
 }
 
 /**
@@ -16,16 +16,13 @@ function login(payload) {
  * @type {Api.Auth.SignUpService}
  */
 function signUp(payload) {
-  const signUpPromise = httpService.post(
-    "/auth/local/register",
-    { ...payload }
-  )
+	const signUpPromise = httpService.post("/auth/local/register", { ...payload });
 
-  return signUpPromise
+	return signUpPromise;
 }
 
 const authService = Object.freeze({
-  login,
-  signUp,
-})
-export default authService
+	login,
+	signUp,
+});
+export default authService;

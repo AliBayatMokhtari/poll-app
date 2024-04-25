@@ -1,5 +1,5 @@
-import config from "../../constants/config"
-import localStorageService from "./localStorage.service"
+import config from "../../constants/config";
+import localStorageService from "./localStorage.service";
 
 /**
  *
@@ -7,59 +7,59 @@ import localStorageService from "./localStorage.service"
  * @returns {Core.Http.HttpCore}
  */
 const createHttpCore = ({ storageService }) => {
-  /** @returns {Record<string, string>} */
-  const getDefaultHeaders = () => {
-    const user = storageService.getAuthUser()
-    const token = user?.jwt ?? ""
-    return {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    }
-  }
+	/** @returns {Record<string, string>} */
+	const getDefaultHeaders = () => {
+		const user = storageService.getAuthUser();
+		const token = user?.jwt ?? "";
+		return {
+			Authorization: `Bearer ${token}`,
+			"Content-Type": "application/json",
+		};
+	};
 
-  /**
-   *
-   * @param {string} url
-   */
-  const getFullUrl = (url) => config.apiBaseUrl + url
+	/**
+	 *
+	 * @param {string} url
+	 */
+	const getFullUrl = (url) => config.apiBaseUrl + url;
 
-  return {
-    async get(url) {
-      const res = await fetch(getFullUrl(url), {
-        method: "GET",
-        headers: { ...getDefaultHeaders() },
-      })
+	return {
+		async get(url) {
+			const res = await fetch(getFullUrl(url), {
+				method: "GET",
+				headers: { ...getDefaultHeaders() },
+			});
 
-      const json = await res.json()
+			const json = await res.json();
 
-      if (!res.ok) {
-        throw json
-      }
+			if (!res.ok) {
+				throw json;
+			}
 
-      return json
-    },
+			return json;
+		},
 
-    async post(url, payload) {
-      const res = await fetch(getFullUrl(url), {
-        method: "POST",
-        headers: { ...getDefaultHeaders() },
-        body: JSON.stringify(payload),
-      })
+		async post(url, payload) {
+			const res = await fetch(getFullUrl(url), {
+				method: "POST",
+				headers: { ...getDefaultHeaders() },
+				body: JSON.stringify(payload),
+			});
 
-      const json = await res.json()
+			const json = await res.json();
 
-      if (!res.ok) {
-        throw json
-      }
+			if (!res.ok) {
+				throw json;
+			}
 
-      return json
-    },
-  }
-}
+			return json;
+		},
+	};
+};
 
 const httpService = Object.freeze({
-  ...createHttpCore({
-    storageService: localStorageService,
-  }),
-})
-export default httpService
+	...createHttpCore({
+		storageService: localStorageService,
+	}),
+});
+export default httpService;

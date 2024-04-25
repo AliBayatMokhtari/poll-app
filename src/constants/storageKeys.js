@@ -1,6 +1,6 @@
 const storageKeys = Object.freeze({
-  user: "user",
-  theme: "theme",
-})
+	user: "user",
+	theme: "theme",
+});
 
-export default storageKeys
+export default storageKeys;

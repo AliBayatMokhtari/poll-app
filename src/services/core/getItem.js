@@ -3,6 +3,6 @@
  * @param {string} key
  */
 export function getItem(storage, key) {
-  const value = storage.getItem(key);
-  return value;
+	const value = storage.getItem(key);
+	return value;
 }

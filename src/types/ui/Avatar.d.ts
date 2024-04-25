@@ -1,3 +1,3 @@
 export interface AvatarProps {
-  username: string
+	username: string;
 }

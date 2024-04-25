@@ -1,7 +1,7 @@
 const routes = Object.freeze({
-  home: "/",
-  login: "/login",
-  signUp: "/sign-up",
-})
+	home: "/",
+	login: "/login",
+	signUp: "/sign-up",
+});
 
-export default routes
+export default routes;
