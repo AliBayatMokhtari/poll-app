@@ -4,15 +4,18 @@ import authService from "../services/api/auth.service";
 import withAuthenticatedUser from "../components/withAuthenticatedUser";
 import { Link } from "wouter";
 import routes from "../constants/routes";
+import { useState } from "react";
 
 function LoginPage() {
 	const setUser = useUserStore((state) => state.setUser);
+	const [loading, setLoading] = useState(false);
 
 	/**
 	 *
 	 * @param {{email: string; password: string;}} data
 	 */
 	const loginUser = async ({ email, password }) => {
+		setLoading(true);
 		try {
 			const result = await authService.login({
 				identifier: email,
@@ -23,6 +26,8 @@ function LoginPage() {
 		} catch (err) {
 			// TODO: handle error globally or locally
 			console.log({ err });
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -85,7 +90,7 @@ function LoginPage() {
 						/>
 					</div>
 
-					<Button type="submit" style={{ width: "100%", marginTop: "10px" }}>
+					<Button type="submit" style={{ width: "100%", marginTop: "10px" }} loading={loading}>
 						Login
 					</Button>
 
