@@ -14,8 +14,8 @@ import {
 import useUserStore from "../../store/user.store";
 
 export default function Avatar() {
-	const username = useUserStore((store) => store.info.username);
-	const removeUser = useUserStore((store) => store.removeUser);
+	const username = useUserStore(store => store.info.username);
+	const removeUser = useUserStore(store => store.removeUser);
 
 	return (
 		<Popover.Root>
@@ -43,7 +43,7 @@ export default function Avatar() {
 }
 
 function UserInfo() {
-	const user = useUserStore((user) => user.info);
+	const user = useUserStore(user => user.info);
 	const copyId = () => {
 		navigator.clipboard.writeText(user.username);
 	};

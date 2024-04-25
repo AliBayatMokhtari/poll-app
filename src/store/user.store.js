@@ -25,7 +25,7 @@ const initialStore = {
 const useUserStore = create(
 	devtools(
 		persist(
-			(set) => ({
+			set => ({
 				...initialStore,
 
 				/**
@@ -33,7 +33,7 @@ const useUserStore = create(
 				 * @param {Domain.User} user
 				 * @returns
 				 */
-				setUser: (user) => set(user),
+				setUser: user => set(user),
 
 				removeUser: () => set({ ...initialStore }),
 			}),

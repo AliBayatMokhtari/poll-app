@@ -7,7 +7,7 @@ import Avatar from "./Avatar";
 
 export default function Header() {
 	const { theme, setTheme } = useThemeStore();
-	const username = useUserStore((state) => state.info.username);
+	const username = useUserStore(state => state.info.username);
 
 	const toggleTheme = () => {
 		setTheme(theme === "dark" ? "light" : "dark");

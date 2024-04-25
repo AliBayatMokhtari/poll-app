@@ -16,4 +16,18 @@ declare namespace Domain {
 		jwt: string;
 		info: UserInfo;
 	}
+
+	interface PollOption {
+		title: string;
+		selected: boolean;
+	}
+
+	interface Poll {
+		id: string;
+		title: string;
+		description: string;
+		options: Array<PollOption>;
+		expiresAt: string;
+		startsAt: string;
+	}
 }

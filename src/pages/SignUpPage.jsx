@@ -6,13 +6,13 @@ import useUserStore from "../store/user.store";
 import withAuthenticatedUser from "../components/withAuthenticatedUser";
 
 function SignUpPage() {
-	const setUser = useUserStore((store) => store.setUser);
+	const setUser = useUserStore(store => store.setUser);
 
 	/**
 	 *
 	 * @param {import("react").FormEvent<HTMLFormElement>} e
 	 */
-	const submit = (e) => {
+	const submit = e => {
 		e.preventDefault();
 
 		const formData = new FormData(e.currentTarget);
@@ -38,7 +38,7 @@ function SignUpPage() {
 				password: password.toString(),
 			};
 
-			authService.signUp(payload).then((res) => {
+			authService.signUp(payload).then(res => {
 				const { user, jwt } = res;
 				setUser({
 					info: user,

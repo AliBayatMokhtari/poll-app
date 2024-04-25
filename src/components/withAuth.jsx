@@ -8,7 +8,7 @@ import { Redirect } from "wouter";
  */
 export default function withAuth(Component) {
 	const Comp = () => {
-		const token = useUserStore((state) => state.jwt);
+		const token = useUserStore(state => state.jwt);
 
 		if (!token) return <Redirect to="/login" replace />;
 
